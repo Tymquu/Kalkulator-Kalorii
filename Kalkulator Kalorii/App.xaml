@@ -34,6 +34,45 @@
             <Setter Property="FontSize" Value="12" />
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
-        
+        <Style TargetType="Window" x:Key="CustomTitleBar">
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome CaptionHeight="36" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <DockPanel LastChildFill="True">
+                            <Border Background="#272537" DockPanel.Dock="Top"
+                            Height="{x:Static SystemParameters.CaptionHeight}" x:Name="titlebar">
+                                <DockPanel>
+                                    <Button x:Name="CloseButton" Content="X" Padding="2" WindowChrome.IsHitTestVisibleInChrome="True"
+                                                    Click="CloseButton_Click"
+                                                    DockPanel.Dock="Right" Background="Transparent" />
+                                    <!--
+                                    <Button x:Name="MaxButton" Content="◰" WindowChrome.IsHitTestVisibleInChrome="True"
+                                            Click="MaximizeButton_Click"
+                                            DockPanel.Dock="Right" Background="Transparent" />
+                                    <Button x:Name="MinButton" Content=" _ " Padding="2" WindowChrome.IsHitTestVisibleInChrome="True"
+                                            Click="MinimizeButton_Click"
+                                            DockPanel.Dock="Right" Background="Transparent" />
+                                    -->
+                                    <TextBlock Text="{TemplateBinding Title}" 
+                                        Margin="10,0,0,0"
+                                        Foreground="White"
+                                        VerticalAlignment="Center">
+                                    </TextBlock>
+                                </DockPanel>
+                            </Border>
+                            <Border Background="#272537" 
+                            BorderThickness="0" Padding="4">
+                                <ContentPresenter/>
+                            </Border>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

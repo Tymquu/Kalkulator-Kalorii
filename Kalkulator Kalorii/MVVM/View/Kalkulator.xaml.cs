@@ -44,10 +44,6 @@ namespace Kalkulator_Kalorii.MVVM.View
             mw.Show();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -56,54 +52,8 @@ namespace Kalkulator_Kalorii.MVVM.View
             ht.Show();
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
 
-        }
-
-        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                if (e.ClickCount == 2)
-                {
-                    AdjustWindowSize();
-                }
-                else
-                {
-                    Application.Current.MainWindow.DragMove();
-                }
-        }
-
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdjustWindowSize();
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void AdjustWindowSize()
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                MaxButton.Content = "◰";
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-                MaxButton.Content = "□";
-            }
-
-        }
+        
 
         private void Click_dodanie_posilku(object sender, RoutedEventArgs e)
         {

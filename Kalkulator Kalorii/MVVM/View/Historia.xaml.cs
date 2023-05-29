@@ -39,7 +39,7 @@ namespace Kalkulator_Kalorii.MVVM.View
 
             string lokalizacja;
             DataBase db = new DataBase();
-            lokalizacja = "C:\baza.sqlite";
+            lokalizacja = "C:\\baza.sqlite";
 
             #if DEBUG
             lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
@@ -78,50 +78,6 @@ namespace Kalkulator_Kalorii.MVVM.View
             this.Hide();
             MainWindow mw = new MainWindow();
             mw.Show();
-        }
-
-        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                if (e.ClickCount == 2)
-                {
-                    AdjustWindowSize();
-                }
-                else
-                {
-                    Application.Current.MainWindow.DragMove();
-                }
-        }
-
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdjustWindowSize();
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void AdjustWindowSize()
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                MaxButton.Content = "◰";
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-                MaxButton.Content = "□";
-            }
-
         }
 
         private void Historia_data_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

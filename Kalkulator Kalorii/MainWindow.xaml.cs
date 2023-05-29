@@ -41,9 +41,16 @@ namespace Kalkulator_Kalorii
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            Kalkulator kal = new Kalkulator();
-            kal.Show();
+            if (ObecnyUzytkownik.wybrany_uzytkownik_nazwa == null)
+            {
+                MessageBox.Show("Aby przejśc dalej należy wybrać użytkownika lub stworzyć nowego!", "Uwaga");
+            }
+            else
+            {
+                this.Hide();
+                Kalkulator kal = new Kalkulator();
+                kal.Show();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -52,50 +59,6 @@ namespace Kalkulator_Kalorii
             nu.Show();
 
         }     
-
-        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                if (e.ClickCount == 2)
-                {
-                    AdjustWindowSize();
-                }
-                else
-                {
-                    Application.Current.MainWindow.DragMove();
-                }
-        }
-
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdjustWindowSize();
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void AdjustWindowSize()
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                MaxButton.Content = "◰";
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-                MaxButton.Content = "□";
-            }
-
-        }
 
         private void Wybor_uzytkownika_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -112,5 +75,7 @@ namespace Kalkulator_Kalorii
         {
             Wczytaj_uzytkownika();
         }
+
+
     }
 }

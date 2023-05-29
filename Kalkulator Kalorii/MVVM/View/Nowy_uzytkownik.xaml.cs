@@ -30,58 +30,9 @@ namespace Kalkulator_Kalorii.MVVM.View
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                if (e.ClickCount == 2)
-                {
-                    AdjustWindowSize();
-                }
-                else
-                {
-                    Application.Current.MainWindow.DragMove();
-                }
-        }
-
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            AdjustWindowSize();
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void AdjustWindowSize()
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                MaxButton.Content = "◰";
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-                MaxButton.Content = "□";
-            }
-
         }
 
         private void UserSave_Click(object sender, RoutedEventArgs e)
