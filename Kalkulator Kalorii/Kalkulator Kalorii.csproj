@@ -126,5 +126,20 @@
   <ItemGroup>
     <Resource Include="pngtree-letter-x-spongy-transparent-background-png-image_5963314.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="X.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XXXXX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MVVM\View\kcalorieieieie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MVVM\View\kaloeri CZORNY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MVVM\View\kaloeri BIOŁY.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

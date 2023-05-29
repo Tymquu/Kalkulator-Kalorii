@@ -15,12 +15,13 @@
     <Border Background="#272537"
             CornerRadius="20">
         <Grid>
-            <Button Content="Kalkulator Kalorii" HorizontalAlignment="Left" Margin="288,322,0,0" VerticalAlignment="Top" Width="310" Height="106" Click="Button_Click"/>
-            <Label Content="Obecny użytkownik:" HorizontalAlignment="Left" Margin="52,10,0,0" VerticalAlignment="Top" Height="25" Width="116"/>
-            <Label Content="UZYT" HorizontalAlignment="Left" Margin="51,40,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
+            <Button Content="Kalkulator Kalorii" HorizontalAlignment="Left" Margin="288,322,0,0" VerticalAlignment="Top" Width="310" Height="106" Click="Button_Click" FontSize="22"/>
+            <Label Content="Obecny użytkownik:" HorizontalAlignment="Left" Margin="11,522,0,0" VerticalAlignment="Top" Height="25" Width="116"/>
+            <Label Content="         UZYT" HorizontalAlignment="Left" Margin="10,552,0,0" VerticalAlignment="Top" Height="38" Width="117"/>
             <ComboBox HorizontalAlignment="Left" Margin="288,160,0,0" VerticalAlignment="Top" Width="310" Height="56"/>
             <Button Content="Nowy użytkownik" HorizontalAlignment="Left" Margin="620,160,0,0" VerticalAlignment="Top" Width="142" Height="56" Click="Button_Click_1"/>
-            <Image Name="X" HorizontalAlignment="Left" Height="54" Margin="858,10,0,0" VerticalAlignment="Top" Width="52" MouseDown="X_MouseDown" Source="pngtree-letter-x-spongy-transparent-background-png-image_5963314.png" RenderTransformOrigin="0.49,0.759"/>
+            <Image Name="X" HorizontalAlignment="Left" Height="25" Margin="882,10,0,0" VerticalAlignment="Top" Width="28" MouseDown="X_MouseDown" Source="XXXXX.png" RenderTransformOrigin="0.49,0.759"/>
+            <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="MVVM/View/kaloeri BIOŁY.png"/>
 
         </Grid>
 

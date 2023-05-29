@@ -11,7 +11,7 @@
         Title="Kalkulator" Height="450" Width="800">
 
     <Border Background="#272537"
-            CornerRadius="20">
+            CornerRadius="20" BorderThickness="0">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -22,9 +22,8 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Wrzucić tu zdj&#xD;&#xA;Kalulatora czy coś" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Width="130" Background="White"/>
             <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Height="55" Width="273"/>
-            <ComboBox Text="Wybierz posiłek" Grid.Column="1" HorizontalAlignment="Left" Margin="32,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="136" Height="25">
+            <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz posiłek" Grid.Column="1" HorizontalAlignment="Left" Margin="59,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30">
                 <ComboBoxItem Content="Śniadanie"/>
                 <ComboBoxItem Content="Lunch"/>
                 <ComboBoxItem Content="Obiad"/>
@@ -32,15 +31,26 @@
                 <ComboBoxItem Content="Kolacja"/>
             </ComboBox>
             <Button Content="Dodaj" Grid.Column="1" HorizontalAlignment="Left" Margin="434,275,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="40"/>
-            <Label Content="xxxx/2200 kcal" Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="416,10,0,0" VerticalAlignment="Top" Width="146"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="32,73,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wpisz posiłek?&#xD;&#xA;Posiłki z podpowiedziami" VerticalAlignment="Top" Width="136" TextChanged="TextBox_TextChanged"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="187,73,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Ile ma gram" VerticalAlignment="Top" Width="136"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="32,117,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Woda ile ml" VerticalAlignment="Top" Width="136"/>
-            <Label Content="xxxx/2083 ml" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="187,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="136"/>
-            <ComboBox Text="Wybierz aktywność fizyczną" Grid.Column="1" HorizontalAlignment="Left" Margin="32,160,0,0" Grid.Row="1" VerticalAlignment="Top" Width="136" Height="25"/>
-            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="187,160,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Czas" VerticalAlignment="Top" Width="136"/>
+            <Label Content="xxxx/2200 kcal" Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="416,10,0,0" VerticalAlignment="Top" Width="146" FontFamily="Constantia" FontSize="16"/>
+            <TextBox Name="Posilki_z_podpowiedziami" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="59,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wpisz posiłek" VerticalAlignment="Top" Width="187" TextChanged="TextBox_TextChanged"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Waga [g]" VerticalAlignment="Top" Width="187"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="59,154,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Woda [ml]" VerticalAlignment="Top" Width="187" TextChanged="TextBox_TextChanged_1"/>
+            <Label Content="xxxx/2083 ml" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,154,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" FontFamily="Constantia" FontSize="15"/>
+            <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz aktywność" Grid.Column="1" HorizontalAlignment="Left" Margin="59,206,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30"/>
+            <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,206,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Czas" VerticalAlignment="Top" Width="187"/>
             <Button Content="Historia" HorizontalAlignment="Left" Margin="35,162,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click_1"/>
             <Button Content="Menu" HorizontalAlignment="Left" Margin="35,86,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click"/>
+            <Border BorderBrush="#FF13121B" BorderThickness="2,2,2,0.8" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="4" Grid.Row="1" Margin="196,10,0,0" RenderTransformOrigin="0.5,0.5">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.011"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
         </Grid>
 
     </Border>

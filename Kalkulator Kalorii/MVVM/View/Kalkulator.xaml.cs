@@ -49,5 +49,10 @@ namespace Kalkulator_Kalorii.MVVM.View
             Historia ht = new Historia();
             ht.Show();
         }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
