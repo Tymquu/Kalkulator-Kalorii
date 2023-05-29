@@ -104,7 +104,8 @@ namespace Kalkulator_Kalorii
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Nowy_uzytkownik nu = new Nowy_uzytkownik("Edycja");
-            nu.Show();
+            nu.ShowDialog();
+            Wybor_uzytkownika_LostFocus(sender, e);
         }
     }
 }

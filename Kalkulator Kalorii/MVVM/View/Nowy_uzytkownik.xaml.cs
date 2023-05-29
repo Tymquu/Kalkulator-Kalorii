@@ -100,5 +100,9 @@ namespace Kalkulator_Kalorii.MVVM.View
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void wzrost_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

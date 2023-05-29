@@ -201,7 +201,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
 
         public User GetUserData(int id)
         {
-            sql = $"SELECT * FROM USER WHERE UserID = {id}";
+            sql = $"SELECT UserID,NazwaUzytkownika,Wzrost,Plec,ObecnaWaga,DocelowaWaga,Wiek,KalorieNaDzien,WodaNaDzien FROM USER WHERE UserID = {id}";
             command = new SQLiteCommand(sql, conn);
             using (SQLiteDataReader reader = command.ExecuteReader())
             {

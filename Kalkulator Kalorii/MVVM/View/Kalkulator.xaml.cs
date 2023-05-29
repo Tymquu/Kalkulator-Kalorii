@@ -110,5 +110,10 @@ namespace Kalkulator_Kalorii.MVVM.View
             WodaDzisiejsza.Content = WypitaWoda + "/" + WodaDzis + " ml";
             KalorieDzisiejsze.Content = ZjedzoneKcal + "/" + KcalDzis + " kcal";
         }
+
+        private void kcal_posilku_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
