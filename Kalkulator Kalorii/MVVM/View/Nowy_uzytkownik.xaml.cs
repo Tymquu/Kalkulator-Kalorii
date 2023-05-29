@@ -50,7 +50,7 @@ namespace Kalkulator_Kalorii.MVVM.View
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
         }
 
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)
