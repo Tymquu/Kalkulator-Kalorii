@@ -28,11 +28,11 @@
             <ComboBoxItem Content="Kolacja"/>
         </ComboBox>
         <Button x:Name="Dodanie_posilku" Content="Dodaj" Grid.Column="1" HorizontalAlignment="Left" Margin="434,275,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="40" Click="Click_dodanie_posilku"/>
-        <Label Content="xxxx/2200 kcal" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="434,46,0,0" VerticalAlignment="Top" Width="119" FontFamily="Constantia" FontSize="16" Grid.RowSpan="2"/>
+        <Label x:Name="KalorieDzisiejsze" Content="xxxx/2200 kcal" Grid.Column="1" HorizontalAlignment="Left" Height="33" Margin="434,46,0,0" VerticalAlignment="Top" Width="119" FontFamily="Constantia" FontSize="16" Grid.RowSpan="2"/>
         <TextBox x:Name="Dany_posilek" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="37,97,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
         <TextBox x:Name="Waga_posilku" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="248,95,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="Woda_ml_" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="37,163,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <Label Content="xxxx/2083 ml" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="295,46,0,0" VerticalAlignment="Top" Width="100" FontFamily="Constantia" FontSize="15" Grid.RowSpan="2"/>
+        <Label x:Name="WodaDzisiejsza" Content="xxxx/2083 ml" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="295,46,0,0" VerticalAlignment="Top" Width="100" FontFamily="Constantia" FontSize="15" Grid.RowSpan="2"/>
         <ComboBox x:Name="Nazwa_aktywnosci" IsEditable="True" Focusable="False" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" Margin="37,231,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30">
             <ComboBoxItem Content="Rower"/>
             <ComboBoxItem Content="Bieganie"/>

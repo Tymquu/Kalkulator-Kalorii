@@ -28,7 +28,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
             conn.Open();
 
             //Tabela Urzytkownik
-            sql = "CREATE TABLE User (UserID int primary key,NazwaUzytkownika varchar(50),Wzrost int, Plec varchar(20),ObecnaWaga decimal(4,2),DocelowaWaga decimal(4,2)) ";
+            sql = "CREATE TABLE User (UserID int primary key,NazwaUzytkownika varchar(50),Wzrost int, Plec varchar(20),ObecnaWaga decimal(4,2),DocelowaWaga decimal(4,2), KalorieNaDzien decimal(5,0), WodaNaDzien decimal(5,0), Wiek int) ";
             command = new SQLiteCommand(sql, conn);
             command.ExecuteNonQuery();
 
@@ -71,7 +71,30 @@ namespace Kalkulator_Kalorii.MVVM.Model
         {
             string obWaga= s.ObecnaWaga.ToString().Replace(',', '.');
             string docWaga = s.DocelowaWaga.ToString().Replace(',', '.');
-            sql = $"INSERT INTO User VALUES({s.UserID},'{s.NazwaUzytkownika}',{s.Wzrost},'{s.Plec}',{obWaga},{docWaga})";
+            decimal KcalNaDzien = 0;
+            int WodaNaDzien = 0;
+            if (s.Plec == "kobieta")
+            {
+                KcalNaDzien = 655 + (9.6m * s.ObecnaWaga) + (1.85m * s.Wzrost) - (4.7m * s.Wiek);
+                WodaNaDzien = 2000;
+            }
+            else
+            {
+                KcalNaDzien = 66.5m + (13.7m * s.ObecnaWaga) + (5m * s.Wzrost) - (6.8m * s.Wiek);
+                WodaNaDzien = 2500;
+            }
+
+            if(s.ObecnaWaga > s.DocelowaWaga)
+            {
+                KcalNaDzien = KcalNaDzien * 0.8m;
+            }
+            if(s.ObecnaWaga < s.DocelowaWaga)
+            {
+                KcalNaDzien = KcalNaDzien * 1.2m;
+            }
+
+
+            sql = $"INSERT INTO User VALUES({s.UserID},'{s.NazwaUzytkownika}',{s.Wzrost},'{s.Plec}',{obWaga},{docWaga},{KcalNaDzien.ToString().Replace(',', '.')},{WodaNaDzien},{s.Wiek})";
             command = new SQLiteCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -111,6 +134,68 @@ namespace Kalkulator_Kalorii.MVVM.Model
             return sda;
         }
 
+        public int WodaDzien()
+        {
+            sql = $"SELECT WodaNaDzien FROM User WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id}";
+            command = new SQLiteCommand(sql, conn);
+            int id = 0;
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    id = 1;
+                else
+                    id = Convert.ToInt32(reader[0]);
+                return id;
+            }
+        }
 
+        public decimal KalorieDzien()
+        {
+            sql = $"SELECT KalorieNaDzien FROM User WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id}";
+            command = new SQLiteCommand(sql, conn);
+            decimal id = 0;
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    id = 1;
+                else
+                    id = Convert.ToDecimal(reader[0]);
+                return id;
+            }
+        }
+
+        public int ZjedzoneKalorie(string Data)
+        {
+            sql = $"SELECT SUM(KalorycznoscPosilku) FROM Historia WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id} AND Data = {Data}";
+            command = new SQLiteCommand(sql, conn);
+            int id = 0;
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    id = 1;
+                else
+                    id = Convert.ToInt32(reader[0]);
+                return id;
+            }
+        }
+
+        public int WypitaWoda(string Data)
+        {
+            sql = $"SELECT SUM(Woda) FROM Historia WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id} AND Data = {Data}";
+            command = new SQLiteCommand(sql, conn);
+            int id = 0;
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    id = 1;
+                else
+                    id = Convert.ToInt32(reader[0]);
+                return id;
+            }
+        }
     }
 }

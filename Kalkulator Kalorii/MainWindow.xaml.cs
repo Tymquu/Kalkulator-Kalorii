@@ -24,10 +24,23 @@ namespace Kalkulator_Kalorii
 
         private void Wczytaj_uzytkownika()
         {
+            string lokalizacja;
             DataBase db = new DataBase();
-            string lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
+            lokalizacja = "C:\\baza.sqlite";
+
+#if DEBUG
+            lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
+#endif
+
+
+            if (!File.Exists(lokalizacja))
+            {
+                db.Create_DB(lokalizacja);
+            }
+
             conn = db.Connection(lokalizacja);
             conn.Open();
+
             SQLiteDataAdapter sda = db.ListaUzytkownikow();
 
             DataSet dataset = new DataSet();

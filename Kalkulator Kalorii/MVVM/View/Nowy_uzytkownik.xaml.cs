@@ -49,7 +49,8 @@ namespace Kalkulator_Kalorii.MVVM.View
                 Wzrost = Convert.ToInt32(wzrost.Text),
                 Plec = PlecCmb.Text,
                 ObecnaWaga = Convert.ToDecimal(obecna_waga.Text),
-                DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text)
+                DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text),
+                Wiek = Convert.ToInt32(wiek.Text)
             };
 
             db.InsertUser(s);

@@ -15,5 +15,8 @@ namespace Kalkulator_Kalorii.MVVM.Model
         public string Plec { get; set; }
         public decimal ObecnaWaga { get; set; }
         public decimal DocelowaWaga { get; set; }
+        public int Wiek { get; set; }
+        public decimal KalorieNaDzien { get; set; }
+        public decimal WodaNaDzien { get; set; }
     }
 }

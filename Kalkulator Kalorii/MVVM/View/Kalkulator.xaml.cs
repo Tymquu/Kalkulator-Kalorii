@@ -26,8 +26,10 @@ namespace Kalkulator_Kalorii.MVVM.View
         public Kalkulator()
         {
             InitializeComponent();
-            Nazwa_obecnego_uzytkownika.Content = ObecnyUzytkownik.wybrany_uzytkownik_nazwa;
             data.SelectedDate = DateTime.Today;
+            WodaKcalDzis();
+            Nazwa_obecnego_uzytkownika.Content = ObecnyUzytkownik.wybrany_uzytkownik_nazwa;
+            
         }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
@@ -88,8 +90,24 @@ namespace Kalkulator_Kalorii.MVVM.View
 
                 MessageBox.Show("Dodano posiłek");
             }
+                     
+        }
 
-            
+        private void WodaKcalDzis()
+        {
+            string Data = data.SelectedDate.Value.ToShortDateString();
+            DataBase db = new DataBase();
+            string lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
+            conn = db.Connection(lokalizacja);
+            conn.Open();
+            int WodaDzis = db.WodaDzien();
+            decimal KcalDzis = db.KalorieDzien();
+
+            int WypitaWoda = db.WypitaWoda(Data);
+            int ZjedzoneKcal = db.ZjedzoneKalorie(Data);
+
+            WodaDzisiejsza.Content = WypitaWoda + "/" + WodaDzis + " ml";
+            KalorieDzisiejsze.Content = ZjedzoneKcal + "/" + KcalDzis + " kcal";
         }
     }
 }
