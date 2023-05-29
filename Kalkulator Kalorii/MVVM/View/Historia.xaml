@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        Title="Historia" Height="450" Width="800"
+        Height="450" Width="800"
         Style="{StaticResource CustomTitleBar}" >
 
     
@@ -30,6 +30,7 @@
         <Border BorderBrush="#FF13121B" BorderThickness="2,2,2,0.8" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="4" Grid.Row="1" Margin="196,10,0,0" RenderTransformOrigin="0.5,0.5" CornerRadius="1">
         </Border>
         <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
+        <Button Content="Kalkulator" HorizontalAlignment="Left" Margin="35,155,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click_kalkulaotr"/>
     </Grid>
   
 </Window>

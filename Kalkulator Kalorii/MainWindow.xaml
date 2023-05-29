@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Height="600" Width="920"
         WindowStyle="None"
-        Title="Main"
         Style="{StaticResource CustomTitleBar}" >
 
 

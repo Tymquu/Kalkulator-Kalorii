@@ -30,12 +30,13 @@ namespace Kalkulator_Kalorii.MVVM.View
         public Historia()
         {
             InitializeComponent();
+            Historia_data.SelectedDate = DateTime.Today;
             Load();
         }
 
         public void Load()
         {
-            Historia_data.SelectedDate = DateTime.Today;
+            string Data = Historia_data.SelectedDate.Value.ToShortDateString();         
 
             string lokalizacja;
             DataBase db = new DataBase();
@@ -54,7 +55,8 @@ namespace Kalkulator_Kalorii.MVVM.View
             conn = db.Connection(lokalizacja);
             conn.Open();
 
-            sql = "SELECT PosilekTyp,DanyPosilek,WagaPosilku,KalorycznoscPosilku,Woda,Aktywnosc,CzasAktywnosci FROM Historia";
+            sql = $"SELECT PosilekTyp,DanyPosilek,WagaPosilku,KalorycznoscPosilku,Woda,Aktywnosc,CzasAktywnosci FROM Historia WHERE Data = '{Data}' AND UserID = { ObecnyUzytkownik.wybrany_uzytkownik_id }";
+            
             command = new SQLiteCommand(sql, conn);
 
             Fill(command);
@@ -71,6 +73,11 @@ namespace Kalkulator_Kalorii.MVVM.View
             {
                 Historia_kalorii.ItemsSource = ds.Tables[0].DefaultView;
             }
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                Historia_kalorii.ItemsSource = null;
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -82,7 +89,14 @@ namespace Kalkulator_Kalorii.MVVM.View
 
         private void Historia_data_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            Load();
+        }
 
+        private void Button_Click_kalkulaotr(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Kalkulator kal = new Kalkulator();
+            kal.Show();
         }
     }
 }

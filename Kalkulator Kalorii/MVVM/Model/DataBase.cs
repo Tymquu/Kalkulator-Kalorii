@@ -92,7 +92,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
             }
         }
 
-        public void InsertHistoria(Historia s)
+        public bool InsertHistoria(Historia s)
         {
             string wagaPosilku = s.WagaPosilku.ToString().Replace(',', '.');
             string woda = s.Woda.ToString().Replace(',', '.');
@@ -101,6 +101,8 @@ namespace Kalkulator_Kalorii.MVVM.Model
             sql = $"INSERT INTO Historia VALUES({s.HistoriaID},{s.UserID},'{s.PosilekTyp}','{s.DanyPosilek}',{wagaPosilku},{s.KalorycznoscPosilku},{woda},'{s.Aktywnosc}',{czasAktywnosci},'{data}')";
             command = new SQLiteCommand(sql, conn);
             command.ExecuteNonQuery();
+
+            return true;
         }
 
         public SQLiteDataAdapter ListaUzytkownikow()
@@ -108,5 +110,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
             SQLiteDataAdapter sda = new SQLiteDataAdapter("Select UserID,NazwaUzytkownika FROM User", conn);
             return sda;
         }
+
+
     }
 }

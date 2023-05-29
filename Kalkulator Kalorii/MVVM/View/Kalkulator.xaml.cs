@@ -76,8 +76,20 @@ namespace Kalkulator_Kalorii.MVVM.View
                 Data = data.SelectedDate.Value
             };
 
-            db.InsertHistoria(s);
+            if(db.InsertHistoria(s))
+            {
+                Typ_posilku.SelectedIndex = -1;
+                Dany_posilek.Text = "";
+                Waga_posilku.Text = "";
+                kcal_posilku.Text = "";
+                Woda_ml_.Text = "";
+                Nazwa_aktywnosci.SelectedIndex = -1;
+                czas_aktywnosci.Text = "";
 
+                MessageBox.Show("Dodano posiłek");
+            }
+
+            
         }
     }
 }
