@@ -27,6 +27,7 @@ namespace Kalkulator_Kalorii.MVVM.View
         {
             InitializeComponent();
             Nazwa_obecnego_uzytkownika.Content = ObecnyUzytkownik.wybrany_uzytkownik_nazwa;
+            data.SelectedDate = DateTime.Today;
         }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)

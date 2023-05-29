@@ -35,12 +35,15 @@ namespace Kalkulator_Kalorii.MVVM.View
 
         public void Load()
         {
+            Historia_data.SelectedDate = DateTime.Today;
+
             string lokalizacja;
             DataBase db = new DataBase();
             lokalizacja = "C:\baza.sqlite";
-#if DEBUG
+
+            #if DEBUG
             lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
-#endif
+            #endif
 
 
             if (!File.Exists(lokalizacja))
@@ -51,7 +54,7 @@ namespace Kalkulator_Kalorii.MVVM.View
             conn = db.Connection(lokalizacja);
             conn.Open();
 
-            sql = "SELECT * FROM Historia";
+            sql = "SELECT PosilekTyp,DanyPosilek,WagaPosilku,KalorycznoscPosilku,Woda,Aktywnosc,CzasAktywnosci FROM Historia";
             command = new SQLiteCommand(sql, conn);
 
             Fill(command);
@@ -118,6 +121,11 @@ namespace Kalkulator_Kalorii.MVVM.View
                 this.WindowState = WindowState.Maximized;
                 MaxButton.Content = "□";
             }
+
+        }
+
+        private void Historia_data_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
