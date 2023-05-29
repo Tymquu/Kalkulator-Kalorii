@@ -27,12 +27,7 @@ namespace Kalkulator_Kalorii
         {          
             Nowy_uzytkownik nu = new Nowy_uzytkownik();
             nu.Show();
-        }
-
-        private void X_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-        }
+        }     
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -68,12 +63,12 @@ namespace Kalkulator_Kalorii
             if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
-                MaxButton.Content = "1";
+                MaxButton.Content = "◰";
             }
             else
             {
                 this.WindowState = WindowState.Maximized;
-                MaxButton.Content = "2";
+                MaxButton.Content = "□";
             }
 
         }

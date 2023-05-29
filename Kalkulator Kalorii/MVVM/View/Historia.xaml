@@ -13,22 +13,38 @@
 
     <Border Background="#272537"
             CornerRadius="20">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <DockPanel x:Name="RootWindow" MouseDown="TitleBar_MouseDown">
+            <DockPanel x:Name="TitleBar" DockPanel.Dock="Top">
+                <Button x:Name="CloseButton" Content="X" Padding="2"
+                    Click="CloseButton_Click"
+                    DockPanel.Dock="Right" Background="Transparent" />
+                <Button x:Name="MaxButton" Content="◰"
+                    Click="MaximizeButton_Click"
+                    DockPanel.Dock="Right" Background="Transparent" />
+                <Button x:Name="MinButton" Content=" _ " Padding="2"
+                    Click="MinimizeButton_Click"
+                    DockPanel.Dock="Right" Background="Transparent" />
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top" Height="55" Width="273"/>
-            <Button Content="Menu" HorizontalAlignment="Left" Margin="35,86,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click"/>
-            <DataGrid x:Name="Historia_kalorii" Grid.Column="1" HorizontalAlignment="Left" Height="247" Margin="108,49,0,0" Grid.Row="1" VerticalAlignment="Top" Width="395"/>
-            <Border BorderBrush="#FF13121B" BorderThickness="2,2,2,0.8" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="4" Grid.Row="1" Margin="196,10,0,0" RenderTransformOrigin="0.5,0.5" CornerRadius="1">
-            </Border>
-            <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
-        </Grid>
+
+                <TextBlock Width="Auto" ></TextBlock>
+            </DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top" Height="55" Width="273"/>
+                <Button Content="Menu" HorizontalAlignment="Left" Margin="35,86,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click"/>
+                <DataGrid x:Name="Historia_kalorii" Grid.Column="1" HorizontalAlignment="Left" Height="247" Margin="108,49,0,0" Grid.Row="1" VerticalAlignment="Top" Width="395"/>
+                <Border BorderBrush="#FF13121B" BorderThickness="2,2,2,0.8" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="4" Grid.Row="1" Margin="196,10,0,0" RenderTransformOrigin="0.5,0.5" CornerRadius="1">
+                </Border>
+                <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
+            </Grid>
+        </DockPanel>
     </Border>
 </Window>

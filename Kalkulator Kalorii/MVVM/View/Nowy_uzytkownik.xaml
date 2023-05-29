@@ -12,26 +12,42 @@
 
     <Border Background="#272537"
             CornerRadius="20">
-        <Grid>
-            <TextBox x:Name="nazwa_uzytkownika" HorizontalAlignment="Left" Height="29" Margin="411,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-            <Label Content="Wpisz nazwę użytkownika" HorizontalAlignment="Left" Margin="134,48,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-            <TextBox x:Name="wiek" HorizontalAlignment="Left" Height="30" Margin="411,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-            <TextBox x:Name="wzrost" HorizontalAlignment="Left" Height="29" Margin="411,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-            <TextBox x:Name="obecna_waga" HorizontalAlignment="Left" Height="30" Margin="411,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-            <TextBox x:Name="docelowa_waga" HorizontalAlignment="Left" Height="29" Margin="411,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-            <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz płeć" HorizontalAlignment="Left" Margin="411,198,0,0" VerticalAlignment="Top" Width="217" Height="29" RenderTransformOrigin="-0.33,0.538">
-                <ComboBoxItem Content="Mężczyzna"/>
-                <ComboBoxItem Content="Kobieta"/>
-            </ComboBox>
-            <Label Content="Wpisz wiek" HorizontalAlignment="Left" Margin="134,97,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-            <Label Content="Wpisz wzrost użytkownika" HorizontalAlignment="Left" Margin="134,147,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-            <Label Content="Wybierz płeć " HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-            <Label Content="Wpisz obecną wagę " HorizontalAlignment="Left" Margin="134,250,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-            <Label Content="Wpisz wagę docelową " HorizontalAlignment="Left" Margin="134,300,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-            <Button Content="Zapisz" HorizontalAlignment="Left" Margin="633,362,0,0" VerticalAlignment="Top" Width="149" Height="35"/>
-            <Button Content="Anuluj" HorizontalAlignment="Left" Margin="479,362,0,0" VerticalAlignment="Top" Width="149" Height="35" Click="Button_Click"/>
+        <DockPanel x:Name="RootWindow" MouseDown="TitleBar_MouseDown">
+            <DockPanel x:Name="TitleBar" DockPanel.Dock="Top">
+                <Button x:Name="CloseButton" Content="X" Padding="2"
+                    Click="CloseButton_Click"
+                    DockPanel.Dock="Right" Background="Transparent" />
+                <Button x:Name="MaxButton" Content="◰"
+                    Click="MaximizeButton_Click"
+                    DockPanel.Dock="Right" Background="Transparent" />
+                <Button x:Name="MinButton" Content=" _ " Padding="2"
+                    Click="MinimizeButton_Click"
+                    DockPanel.Dock="Right" Background="Transparent" />
 
-        </Grid>
+
+                <TextBlock Width="Auto" ></TextBlock>
+            </DockPanel>
+            <Grid>
+                <TextBox x:Name="nazwa_uzytkownika" HorizontalAlignment="Left" Height="29" Margin="411,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
+                <Label Content="Wpisz nazwę użytkownika" HorizontalAlignment="Left" Margin="134,48,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
+                <TextBox x:Name="wiek" HorizontalAlignment="Left" Height="30" Margin="411,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="wzrost" HorizontalAlignment="Left" Height="29" Margin="411,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="obecna_waga" HorizontalAlignment="Left" Height="30" Margin="411,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="docelowa_waga" HorizontalAlignment="Left" Height="29" Margin="411,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
+                <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz płeć" HorizontalAlignment="Left" Margin="411,198,0,0" VerticalAlignment="Top" Width="217" Height="29" RenderTransformOrigin="-0.33,0.538">
+                    <ComboBoxItem Content="Mężczyzna"/>
+                    <ComboBoxItem Content="Kobieta"/>
+                </ComboBox>
+                <Label Content="Wpisz wiek" HorizontalAlignment="Left" Margin="134,97,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
+                <Label Content="Wpisz wzrost użytkownika" HorizontalAlignment="Left" Margin="134,147,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
+                <Label Content="Wybierz płeć " HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
+                <Label Content="Wpisz obecną wagę " HorizontalAlignment="Left" Margin="134,250,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
+                <Label Content="Wpisz wagę docelową " HorizontalAlignment="Left" Margin="134,300,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
+                <Button Content="Zapisz" HorizontalAlignment="Left" Margin="633,362,0,0" VerticalAlignment="Top" Width="149" Height="35"/>
+                <Button Content="Anuluj" HorizontalAlignment="Left" Margin="479,362,0,0" VerticalAlignment="Top" Width="149" Height="35" Click="Button_Click"/>
+
+            </Grid>
+        </DockPanel>
 
     </Border>
 
