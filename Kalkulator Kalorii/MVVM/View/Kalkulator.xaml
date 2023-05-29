@@ -35,28 +35,28 @@
                     <RowDefinition Height="75"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Height="55" Width="273"/>
-                <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz posiłek" Grid.Column="1" HorizontalAlignment="Left" Margin="59,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30">
+                <DatePicker x:Name="data" Grid.Column="1" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Height="55" Width="273"/>
+                <ComboBox x:Name="Typ_posilku" IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz posiłek" Grid.Column="1" HorizontalAlignment="Left" Margin="59,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30">
                     <ComboBoxItem Content="Śniadanie"/>
                     <ComboBoxItem Content="Lunch"/>
                     <ComboBoxItem Content="Obiad"/>
                     <ComboBoxItem Content="Podwieczorek"/>
                     <ComboBoxItem Content="Kolacja"/>
                 </ComboBox>
-                <Button Content="Dodaj" Grid.Column="1" HorizontalAlignment="Left" Margin="434,275,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="40"/>
+                <Button x:Name="Dodanie_posilku" Content="Dodaj" Grid.Column="1" HorizontalAlignment="Left" Margin="434,275,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="40" Click="Click_dodanie_posilku"/>
                 <Label Content="xxxx/2200 kcal" Grid.Column="1" HorizontalAlignment="Left" Height="55" Margin="416,10,0,0" VerticalAlignment="Top" Width="146" FontFamily="Constantia" FontSize="16"/>
-                <TextBox Name="Posilki_z_podpowiedziami" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="59,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wpisz posiłek" VerticalAlignment="Top" Width="187" TextChanged="TextBox_TextChanged"/>
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Waga [g]" VerticalAlignment="Top" Width="100"/>
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="59,154,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Woda [ml]" VerticalAlignment="Top" Width="187" TextChanged="TextBox_TextChanged_1"/>
+                <TextBox x:Name="Dany_posilek" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="59,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wpisz posiłek" VerticalAlignment="Top" Width="187" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="Waga_posilku" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Waga [g]" VerticalAlignment="Top" Width="100"/>
+                <TextBox x:Name="Woda_ml_" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="59,154,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Woda [ml]" VerticalAlignment="Top" Width="187" TextChanged="TextBox_TextChanged_1"/>
                 <Label Content="xxxx/2083 ml" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,154,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" FontFamily="Constantia" FontSize="15"/>
-                <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz aktywność" Grid.Column="1" HorizontalAlignment="Left" Margin="59,206,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30">
+                <ComboBox x:Name="Nazwa_aktywnosci" IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz aktywność" Grid.Column="1" HorizontalAlignment="Left" Margin="59,206,0,0" Grid.Row="1" VerticalAlignment="Top" Width="187" Height="30">
                     <ComboBoxItem Content="Rower"/>
                     <ComboBoxItem Content="Bieganie"/>
                     <ComboBoxItem Content="Basen"/>
                     <ComboBoxItem Content="Spacer"/>
                     <ComboBoxItem Content="Wysiłek siłowy"/>
                 </ComboBox>
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,206,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Czas" VerticalAlignment="Top" Width="187"/>
+                <TextBox x:Name="czas_aktywnosci" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="273,206,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Czas" VerticalAlignment="Top" Width="187"/>
                 <Button Content="Historia" HorizontalAlignment="Left" Margin="35,162,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click_1"/>
                 <Button Content="Menu" HorizontalAlignment="Left" Margin="35,86,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click"/>
                 <Border BorderBrush="#FF13121B" BorderThickness="2,2,2,0.8" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="4" Grid.Row="1" Margin="196,10,0,0" RenderTransformOrigin="0.5,0.5">
@@ -70,7 +70,7 @@
                     </Border.RenderTransform>
                 </Border>
                 <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="403,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Kalorie [kcal]" VerticalAlignment="Top" Width="100"/>
+                <TextBox x:Name="kcal_posilku" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="403,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Kalorie [kcal]" VerticalAlignment="Top" Width="100"/>
             </Grid>
         </DockPanel>
 

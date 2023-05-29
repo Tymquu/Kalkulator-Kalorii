@@ -91,16 +91,18 @@ namespace Kalkulator_Kalorii.MVVM.View
             conn = db.Connection(lokalizacja);
             conn.Open();
             int u_id = db.GetUserID();
-            User s = new User();
+            User s = new User
+            {
+                UserID = u_id,
+                NazwaUzytkownika = nazwa_uzytkownika.Text,
+                Wzrost = Convert.ToInt32(wzrost.Text),
+                Plec = PlecCmb.Text,
+                ObecnaWaga = Convert.ToDecimal(obecna_waga.Text),
+                DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text)
+            };
 
-            s.UserID = u_id;
-            s.NazwaUzytkownika = nazwa_uzytkownika.Text;
-            s.Wzrost = Convert.ToInt32(wzrost.Text);
-            s.Plec = PlecCmb.Text;
-            s.ObecnaWaga = Convert.ToDecimal(obecna_waga.Text);
-            s.DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text);
-           
             db.InsertUser(s);
+            this.Close();
         }
 
         private void InsertPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -108,5 +110,6 @@ namespace Kalkulator_Kalorii.MVVM.View
             Regex regex = new Regex("[^0-9,]+$");
             e.Handled = regex.IsMatch(e.Text);
         }
+
     }
 }

@@ -75,5 +75,38 @@ namespace Kalkulator_Kalorii.MVVM.Model
             command = new SQLiteCommand(sql, conn);
             command.ExecuteNonQuery();
         }
+
+        public int GetHistoriaID()
+        {
+            sql = "SELECT MAX(HistoriaID) FROM Historia";
+            command = new SQLiteCommand(sql, conn);
+            int id = 0;
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    id = 1;
+                else
+                    id = Convert.ToInt32(reader[0]) + 1;
+                return id;
+            }
+        }
+
+        public void InsertHistoria(Historia s)
+        {
+            string wagaPosilku = s.WagaPosilku.ToString().Replace(',', '.');
+            string woda = s.Woda.ToString().Replace(',', '.');
+            string czasAktywnosci = s.CzasAktywnosci.ToString().Replace(',', '.');
+            string data = s.Data.ToShortDateString();
+            sql = $"INSERT INTO Historia VALUES({s.HistoriaID},'{s.UserID}',{s.PosilekTyp},'{s.DanyPosilek}',{wagaPosilku},{s.KalorycznoscPosilku},{woda},{s.Aktywnosc},{czasAktywnosci},{data})";
+            command = new SQLiteCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+
+        public SQLiteDataAdapter ListaUzytkownikow()
+        {
+            SQLiteDataAdapter sda = new SQLiteDataAdapter("Select UserID,NazwaUzytkownika FROM User", conn);
+            return sda;
+        }
     }
 }

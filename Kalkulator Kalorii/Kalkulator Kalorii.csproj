@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="MVVM\Model\DataBase.cs" />
     <Compile Include="MVVM\Model\Historia.cs" />
+    <Compile Include="MVVM\Model\ObecnyUzytkownik.cs" />
     <Compile Include="MVVM\Model\User.cs" />
     <Compile Include="MVVM\View\Historia.xaml.cs">
       <DependentUpon>Historia.xaml</DependentUpon>

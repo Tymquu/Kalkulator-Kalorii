@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Kalkulator_Kalorii.MVVM.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +22,7 @@ namespace Kalkulator_Kalorii.MVVM.View
     /// </summary>
     public partial class Kalkulator : Window
     {
+        private SQLiteConnection conn;
         public Kalkulator()
         {
             InitializeComponent();
@@ -96,6 +100,31 @@ namespace Kalkulator_Kalorii.MVVM.View
                 this.WindowState = WindowState.Maximized;
                 MaxButton.Content = "□";
             }
+
+        }
+
+        private void Click_dodanie_posilku(object sender, RoutedEventArgs e)
+        {
+            DataBase db = new DataBase();
+            string lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
+            conn = db.Connection(lokalizacja);
+            conn.Open();
+            int h_id = db.GetHistoriaID();
+            Model.Historia s = new Model.Historia
+            {
+                HistoriaID = h_id,
+                UserID = ObecnyUzytkownik.wybrany_uzytkownik,
+                PosilekTyp = Typ_posilku.Text,
+                DanyPosilek = Dany_posilek.Text,
+                WagaPosilku = Convert.ToDecimal(Waga_posilku.Text),
+                KalorycznoscPosilku = Convert.ToInt32(kcal_posilku.Text),
+                Woda = Convert.ToDecimal(Woda_ml_.Text),
+                Aktywnosc = Nazwa_aktywnosci.Text,
+                CzasAktywnosci = Convert.ToDecimal(czas_aktywnosci.Text),
+                Data = data.SelectedDate.Value
+            };
+
+            db.InsertHistoria(s);
 
         }
     }
