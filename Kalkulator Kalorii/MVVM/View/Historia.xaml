@@ -3,19 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Kalkulator_Kalorii.MVVM.Model"
+        xmlns:local="clr-namespace:Kalkulator_Kalorii.MVVM.View"
+        xmlns:historia="clr-namespace:Kalkulator_Kalorii.MVVM.Model"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
         Title="Historia" Height="450" Width="800">
-
-    <Window.Resources>
-        <CollectionViewSource x:Key="categoryViewSource"/>
-        <CollectionViewSource x:Key="categoryProductsViewSource" 
-                              Source="{Binding Historia, Source={StaticResource categoryViewSource}}"/>
-    </Window.Resources>
 
     <Border Background="#272537"
             CornerRadius="20">
@@ -46,31 +41,7 @@
                 </Grid.RowDefinitions>
                 <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top" Height="55" Width="273"/>
                 <Button Content="Menu" HorizontalAlignment="Left" Margin="35,86,0,0" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="130" Click="Button_Click"/>
-                <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" 
-          EnableRowVirtualization="True" 
-          ItemsSource="{Binding Source={StaticResource categoryViewSource}}" 
-          Margin="24,28,28,27" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.Column="1" Grid.Row="1">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Data}"
-                            Header="Data" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding NazwaUzytkownika}" Header="NazwaUzytkownika" 
-                            Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding PosilekTyp}"
-                            Header="Posiłek" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding DanyPosilek}"
-                            Header="Danie" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding WagaPosilku}"
-                            Header="Waga" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding KalorycznoscPosilku}"
-                            Header="Kalorie" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding Woda}"
-                            Header="Woda" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding Aktywnosc}"
-                            Header="Aktywność" Width="SizeToHeader"/>
-                        <DataGridTextColumn Binding="{Binding CzasAktywnosci}"
-                            Header="Czas Aktywności" Width="SizeToHeader"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <DataGrid x:Name="Historia_kalorii" Grid.Column="1" HorizontalAlignment="Left" Height="247" Margin="108,49,0,0" Grid.Row="1" VerticalAlignment="Top" Width="395" x:FieldModifier="public"/>
                 <Border BorderBrush="#FF13121B" BorderThickness="2,2,2,0.8" HorizontalAlignment="Left" Height="339" VerticalAlignment="Top" Width="4" Grid.Row="1" Margin="196,10,0,0" RenderTransformOrigin="0.5,0.5" CornerRadius="1">
                 </Border>
                 <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
