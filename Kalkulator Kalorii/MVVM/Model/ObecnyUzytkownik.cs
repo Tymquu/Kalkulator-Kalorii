@@ -8,6 +8,8 @@ namespace Kalkulator_Kalorii.MVVM.Model
 {
     public static class ObecnyUzytkownik
     {
-        public static int wybrany_uzytkownik { get; set; }
+        public static int wybrany_uzytkownik_id { get; set; }
+        public static string wybrany_uzytkownik_nazwa { get; set; }
     }
+
 }

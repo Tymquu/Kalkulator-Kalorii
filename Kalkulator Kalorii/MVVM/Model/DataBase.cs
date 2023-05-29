@@ -98,7 +98,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
             string woda = s.Woda.ToString().Replace(',', '.');
             string czasAktywnosci = s.CzasAktywnosci.ToString().Replace(',', '.');
             string data = s.Data.ToShortDateString();
-            sql = $"INSERT INTO Historia VALUES({s.HistoriaID},'{s.UserID}',{s.PosilekTyp},'{s.DanyPosilek}',{wagaPosilku},{s.KalorycznoscPosilku},{woda},{s.Aktywnosc},{czasAktywnosci},{data})";
+            sql = $"INSERT INTO Historia VALUES({s.HistoriaID},{s.UserID},'{s.PosilekTyp}','{s.DanyPosilek}',{wagaPosilku},{s.KalorycznoscPosilku},{woda},'{s.Aktywnosc}',{czasAktywnosci},'{data}')";
             command = new SQLiteCommand(sql, conn);
             command.ExecuteNonQuery();
         }

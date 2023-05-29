@@ -26,6 +26,7 @@ namespace Kalkulator_Kalorii.MVVM.View
         public Kalkulator()
         {
             InitializeComponent();
+            Nazwa_obecnego_uzytkownika.Content = ObecnyUzytkownik.wybrany_uzytkownik_nazwa;
         }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
@@ -113,7 +114,7 @@ namespace Kalkulator_Kalorii.MVVM.View
             Model.Historia s = new Model.Historia
             {
                 HistoriaID = h_id,
-                UserID = ObecnyUzytkownik.wybrany_uzytkownik,
+                UserID = ObecnyUzytkownik.wybrany_uzytkownik_id,
                 PosilekTyp = Typ_posilku.Text,
                 DanyPosilek = Dany_posilek.Text,
                 WagaPosilku = Convert.ToDecimal(Waga_posilku.Text),

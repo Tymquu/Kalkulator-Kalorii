@@ -71,6 +71,8 @@
                 </Border>
                 <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="kaloeri BIOŁY.png" Grid.RowSpan="2"/>
                 <TextBox x:Name="kcal_posilku" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="403,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Kalorie [kcal]" VerticalAlignment="Top" Width="100"/>
+                <Label Content="Obecny użytkownik:" HorizontalAlignment="Left" Margin="24,256,0,0" VerticalAlignment="Top" Height="25" Width="116" Grid.Row="1"/>
+                <Label x:Name="Nazwa_obecnego_uzytkownika" Content="" HorizontalAlignment="Left" Margin="23,292,0,0" VerticalAlignment="Top" Height="38" Width="117" Grid.Row="1"/>
             </Grid>
         </DockPanel>
 

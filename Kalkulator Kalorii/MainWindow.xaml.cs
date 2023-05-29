@@ -18,7 +18,8 @@ namespace Kalkulator_Kalorii
         private SQLiteConnection conn;
         public MainWindow()
         {
-            InitializeComponent();                   
+            InitializeComponent();
+            Nazwa_obecnego_uzytkownika.Content = ObecnyUzytkownik.wybrany_uzytkownik_nazwa;
         }
 
         private void Wczytaj_uzytkownika()
@@ -32,12 +33,10 @@ namespace Kalkulator_Kalorii
             DataSet dataset = new DataSet();
             sda.Fill(dataset);
 
-            foreach (DataRow row in dataset.Tables[0].Rows)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = row["NazwaUzytkownika"].ToString();
-                Wybor_uzytkownika.Items.Add(item);
-            }
+            Wybor_uzytkownika.ItemsSource = dataset.Tables[0].DefaultView;
+            Wybor_uzytkownika.DisplayMemberPath = "NazwaUzytkownika";
+            Wybor_uzytkownika.SelectedValuePath = "UserID";
+            Wybor_uzytkownika.SelectedIndex = -1;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -49,7 +48,6 @@ namespace Kalkulator_Kalorii
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             Nowy_uzytkownik nu = new Nowy_uzytkownik();
             nu.Show();
 
@@ -102,10 +100,15 @@ namespace Kalkulator_Kalorii
         private void Wybor_uzytkownika_LostFocus(object sender, RoutedEventArgs e)
         {
             Nazwa_obecnego_uzytkownika.Content = Wybor_uzytkownika.Text;
-            //ObecnyUzytkownik.wybrany_uzytkownik = 
-        }    
+            if (Wybor_uzytkownika.SelectedIndex >= 0)
+            {
+                int id = int.Parse(Wybor_uzytkownika.SelectedValue.ToString());
+                ObecnyUzytkownik.wybrany_uzytkownik_id = id;
+                ObecnyUzytkownik.wybrany_uzytkownik_nazwa = Wybor_uzytkownika.Text;
+            }
+        }
 
-        private void Grid_GotFocus(object sender, RoutedEventArgs e)
+        private void Wybor_uzytkownika_MouseEnter(object sender, MouseEventArgs e)
         {
             Wczytaj_uzytkownika();
         }

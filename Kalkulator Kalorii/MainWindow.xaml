@@ -26,11 +26,11 @@
 
                 <TextBlock Width="Auto" ></TextBlock>
             </DockPanel>
-            <Grid HorizontalAlignment="Stretch" GotFocus="Grid_GotFocus">
+            <Grid HorizontalAlignment="Stretch">
                 <Button Content="Kalkulator Kalorii" HorizontalAlignment="Left" Margin="288,322,0,0" VerticalAlignment="Top" Width="310" Height="106" Click="Button_Click" FontSize="22"/>
                 <Label Content="Obecny użytkownik:" HorizontalAlignment="Left" Margin="11,496,0,0" VerticalAlignment="Top" Height="25" Width="116"/>
                 <Label x:Name="Nazwa_obecnego_uzytkownika" Content="" HorizontalAlignment="Left" Margin="11,527,0,0" VerticalAlignment="Top" Height="38" Width="117"/>
-                <ComboBox x:Name="Wybor_uzytkownika" HorizontalAlignment="Left" Margin="288,160,0,0" VerticalAlignment="Top" Width="310" Height="56" LostFocus="Wybor_uzytkownika_LostFocus"/>
+                <ComboBox x:Name="Wybor_uzytkownika" HorizontalAlignment="Left" Margin="288,160,0,0" VerticalAlignment="Top" Width="310" Height="56" LostFocus="Wybor_uzytkownika_LostFocus" MouseEnter="Wybor_uzytkownika_MouseEnter"/>
                 <Button Content="Nowy użytkownik" Margin="620,160,0,0" VerticalAlignment="Top" Height="56" Click="Button_Click_1" HorizontalAlignment="Left" Width="128"/>
                 <Image HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Source="MVVM/View/kaloeri BIOŁY.png"/>
 
