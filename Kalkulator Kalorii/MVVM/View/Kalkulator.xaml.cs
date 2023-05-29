@@ -89,6 +89,7 @@ namespace Kalkulator_Kalorii.MVVM.View
                 czas_aktywnosci.Text = "";
 
                 MessageBox.Show("Dodano posiłek");
+                WodaKcalDzis();
             }
                      
         }
@@ -101,7 +102,7 @@ namespace Kalkulator_Kalorii.MVVM.View
             conn = db.Connection(lokalizacja);
             conn.Open();
             int WodaDzis = db.WodaDzien();
-            decimal KcalDzis = db.KalorieDzien();
+            decimal KcalDzis = Math.Round(db.KalorieDzien(),0);
 
             int WypitaWoda = db.WypitaWoda(Data);
             int ZjedzoneKcal = db.ZjedzoneKalorie(Data);

@@ -90,7 +90,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
             }
             if(s.ObecnaWaga < s.DocelowaWaga)
             {
-                KcalNaDzien = KcalNaDzien * 1.2m;
+                KcalNaDzien = KcalNaDzien * 1.3m;
             }
 
 
@@ -168,7 +168,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
 
         public int ZjedzoneKalorie(string Data)
         {
-            sql = $"SELECT SUM(KalorycznoscPosilku) FROM Historia WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id} AND Data = {Data}";
+            sql = $"SELECT SUM(KalorycznoscPosilku) FROM Historia WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id} AND Data = '{Data}'";
             command = new SQLiteCommand(sql, conn);
             int id = 0;
             using (SQLiteDataReader reader = command.ExecuteReader())
@@ -184,7 +184,7 @@ namespace Kalkulator_Kalorii.MVVM.Model
 
         public int WypitaWoda(string Data)
         {
-            sql = $"SELECT SUM(Woda) FROM Historia WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id} AND Data = {Data}";
+            sql = $"SELECT SUM(Woda) FROM Historia WHERE UserID = {ObecnyUzytkownik.wybrany_uzytkownik_id} AND Data = '{Data}'";
             command = new SQLiteCommand(sql, conn);
             int id = 0;
             using (SQLiteDataReader reader = command.ExecuteReader())
