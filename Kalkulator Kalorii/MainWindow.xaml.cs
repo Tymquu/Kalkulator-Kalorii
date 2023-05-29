@@ -23,6 +23,8 @@ namespace Kalkulator_Kalorii
         public MainWindow()
         {
             InitializeComponent();
+
+            string test = "dupa";
         }
     }
 }
