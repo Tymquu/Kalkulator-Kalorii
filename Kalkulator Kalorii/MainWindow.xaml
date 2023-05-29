@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kalkulator_Kalorii"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        >
+
+    <Border Background="#272537"
+            CornerRadius="20">
+        <Grid>
+            <Button Content="Kalkulator Kalorii" HorizontalAlignment="Left" Margin="288,322,0,0" VerticalAlignment="Top" Width="310" Height="106"/>
+            <Label Content="Obecny użytkownik:" HorizontalAlignment="Left" Margin="707,26,0,0" VerticalAlignment="Top" Height="25" Width="117"/>
+            <Label Content="UZYT" HorizontalAlignment="Left" Margin="707,51,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
+            <ComboBox HorizontalAlignment="Left" Margin="288,160,0,0" VerticalAlignment="Top" Width="310" Height="56"/>
+            <Button Content="Nowy użytkownik" HorizontalAlignment="Left" Margin="620,160,0,0" VerticalAlignment="Top" Width="142" Height="56"/>
+
+        </Grid>
+
+    </Border>
 </Window>
