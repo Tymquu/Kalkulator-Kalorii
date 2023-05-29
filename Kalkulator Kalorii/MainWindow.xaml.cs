@@ -1,5 +1,6 @@
 ﻿using Kalkulator_Kalorii.MVVM.View;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Kalkulator_Kalorii
 {
@@ -31,6 +32,50 @@ namespace Kalkulator_Kalorii
         private void X_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                if (e.ClickCount == 2)
+                {
+                    AdjustWindowSize();
+                }
+                else
+                {
+                    Application.Current.MainWindow.DragMove();
+                }
+        }
+
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdjustWindowSize();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void AdjustWindowSize()
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+                MaxButton.Content = "1";
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+                MaxButton.Content = "2";
+            }
+
         }
     }
 }
