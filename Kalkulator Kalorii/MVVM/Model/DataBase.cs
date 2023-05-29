@@ -50,5 +50,30 @@ namespace Kalkulator_Kalorii.MVVM.Model
             conn.Close();
         }
 
+
+        public int GetUserID()
+        {
+            sql = "SELECT MAX(UserID) FROM User";
+            command = new SQLiteCommand(sql, conn);
+            int id = 0;
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    id = 1;
+                else
+                    id = Convert.ToInt32(reader[0]) + 1;
+                return id;
+            }
+        }
+
+        public void InsertUser(User s)
+        {
+            string obWaga= s.ObecnaWaga.ToString().Replace(',', '.');
+            string docWaga = s.DocelowaWaga.ToString().Replace(',', '.');
+            sql = $"INSERT INTO User VALUES({s.UserID},'{s.NazwaUzytkownika}',{s.Wzrost},'{s.Plec}',{obWaga},{docWaga})";
+            command = new SQLiteCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
     }
 }

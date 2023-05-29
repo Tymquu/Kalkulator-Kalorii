@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kalkulator_Kalorii.MVVM.Model;
 
 namespace Kalkulator_Kalorii.MVVM.View
 {
@@ -19,6 +23,8 @@ namespace Kalkulator_Kalorii.MVVM.View
     /// </summary>
     public partial class Nowy_uzytkownik : Window
     {
+        private SQLiteConnection conn;
+
         public Nowy_uzytkownik()
         {
             InitializeComponent();
@@ -76,6 +82,31 @@ namespace Kalkulator_Kalorii.MVVM.View
                 MaxButton.Content = "□";
             }
 
+        }
+
+        private void UserSave_Click(object sender, RoutedEventArgs e)
+        {
+            DataBase db = new DataBase();
+            string lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
+            conn = db.Connection(lokalizacja);
+            conn.Open();
+            int u_id = db.GetUserID();
+            User s = new User();
+
+            s.UserID = u_id;
+            s.NazwaUzytkownika = nazwa_uzytkownika.Text;
+            s.Wzrost = Convert.ToInt32(wzrost.Text);
+            s.Plec = PlecCmb.Text;
+            s.ObecnaWaga = Convert.ToDecimal(obecna_waga.Text);
+            s.DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text);
+           
+            db.InsertUser(s);
+        }
+
+        private void InsertPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9,]+$");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

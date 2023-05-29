@@ -30,9 +30,9 @@
                 <Label Content="Wpisz nazwę użytkownika" HorizontalAlignment="Left" Margin="134,48,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
                 <TextBox x:Name="wiek" HorizontalAlignment="Left" Height="30" Margin="411,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
                 <TextBox x:Name="wzrost" HorizontalAlignment="Left" Height="29" Margin="411,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-                <TextBox x:Name="obecna_waga" HorizontalAlignment="Left" Height="30" Margin="411,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-                <TextBox x:Name="docelowa_waga" HorizontalAlignment="Left" Height="29" Margin="411,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged"/>
-                <ComboBox IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz płeć" HorizontalAlignment="Left" Margin="411,198,0,0" VerticalAlignment="Top" Width="217" Height="29" RenderTransformOrigin="-0.33,0.538">
+                <TextBox x:Name="obecna_waga" HorizontalAlignment="Left" Height="30" Margin="411,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged" PreviewTextInput="InsertPreviewTextInput"/>
+                <TextBox x:Name="docelowa_waga" HorizontalAlignment="Left" Height="29" Margin="411,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" TextChanged="TextBox_TextChanged" PreviewTextInput="InsertPreviewTextInput"/>
+                <ComboBox x:Name="PlecCmb" IsEditable="True" Focusable="False" IsReadOnly="True" Text="Wybierz płeć" HorizontalAlignment="Left" Margin="411,198,0,0" VerticalAlignment="Top" Width="217" Height="29" RenderTransformOrigin="-0.33,0.538">
                     <ComboBoxItem Content="Mężczyzna"/>
                     <ComboBoxItem Content="Kobieta"/>
                 </ComboBox>
@@ -41,7 +41,7 @@
                 <Label Content="Wybierz płeć " HorizontalAlignment="Left" Margin="134,198,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
                 <Label Content="Wpisz obecną wagę " HorizontalAlignment="Left" Margin="134,250,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
                 <Label Content="Wpisz wagę docelową " HorizontalAlignment="Left" Margin="134,300,0,0" VerticalAlignment="Top" Height="29" Width="254"/>
-                <Button Content="Zapisz" HorizontalAlignment="Left" Margin="633,362,0,0" VerticalAlignment="Top" Width="149" Height="35"/>
+                <Button x:Name="UserSave" Content="Zapisz" HorizontalAlignment="Left" Margin="633,362,0,0" VerticalAlignment="Top" Width="149" Height="35" Click="UserSave_Click"/>
                 <Button Content="Anuluj" HorizontalAlignment="Left" Margin="479,362,0,0" VerticalAlignment="Top" Width="149" Height="35" Click="Button_Click"/>
 
             </Grid>
