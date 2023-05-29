@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:Kalkulator_Kalorii.MVVM.View"
         mc:Ignorable="d"
         WindowStyle="None"
-        Background="Transparent"
-        AllowsTransparency="True"
         Title="Wybor_uzytkownika" Height="450" Width="800">
 
     <Border Background="#272537"

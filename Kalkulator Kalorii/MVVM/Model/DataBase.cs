@@ -38,14 +38,14 @@ namespace Kalkulator_Kalorii.MVVM.Model
             command.ExecuteNonQuery();
 
 
-            //Pierwszy wpis testowy
-            sql = @"insert into User values(1,'Eustachy',178, 'h', 0.1, 0.2); ";
-            command = new SQLiteCommand(sql, conn);
-            command.ExecuteNonQuery();
+            ////Pierwszy wpis testowy
+            //sql = @"insert into User values(1,'Eustachy',178, 'h', 0.1, 0.2); ";
+            //command = new SQLiteCommand(sql, conn);
+            //command.ExecuteNonQuery();
 
-            sql = @"insert into Historia values(1,1,'Śniadanie', 's', 21, 37, 'g', '55', '77'); ";
-            command = new SQLiteCommand(sql, conn);
-            command.ExecuteNonQuery();
+            //sql = @"insert into Historia values(1,1,'Śniadanie', 's', 21, 37, 34, 'g', '55', '77'); ";
+            //command = new SQLiteCommand(sql, conn);
+            //command.ExecuteNonQuery();
 
             conn.Close();
         }
