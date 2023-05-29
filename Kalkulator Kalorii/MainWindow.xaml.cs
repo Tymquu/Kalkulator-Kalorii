@@ -68,7 +68,7 @@ namespace Kalkulator_Kalorii
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Nowy_uzytkownik nu = new Nowy_uzytkownik();
+            Nowy_uzytkownik nu = new Nowy_uzytkownik("Nowy");
             nu.Show();
 
         }     
@@ -80,7 +80,19 @@ namespace Kalkulator_Kalorii
             {
                 int id = int.Parse(Wybor_uzytkownika.SelectedValue.ToString());
                 ObecnyUzytkownik.wybrany_uzytkownik_id = id;
-                ObecnyUzytkownik.wybrany_uzytkownik_nazwa = Wybor_uzytkownika.Text;
+                DataBase db = new DataBase();
+                string lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
+                conn = db.Connection(lokalizacja);
+                conn.Open();
+                User current_user = db.GetUserData(id);
+                ObecnyUzytkownik.Wzrost = current_user.Wzrost;
+                ObecnyUzytkownik.wybrany_uzytkownik_nazwa = current_user.NazwaUzytkownika;
+                ObecnyUzytkownik.wybrany_uzytkownik_id = current_user.UserID;
+                ObecnyUzytkownik.Plec = current_user.Plec;
+                ObecnyUzytkownik.ObecnaWaga = current_user.ObecnaWaga;
+                ObecnyUzytkownik.DocelowaWaga = current_user.DocelowaWaga;
+                ObecnyUzytkownik.Wiek = current_user.Wiek;
+                ObecnyUzytkownik.WodaNaDzien = current_user.WodaNaDzien;
             }
         }
 
@@ -89,6 +101,10 @@ namespace Kalkulator_Kalorii
             Wczytaj_uzytkownika();
         }
 
-
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Nowy_uzytkownik nu = new Nowy_uzytkownik("Edycja");
+            nu.Show();
+        }
     }
 }

@@ -25,9 +25,27 @@ namespace Kalkulator_Kalorii.MVVM.View
     {
         private SQLiteConnection conn;
 
-        public Nowy_uzytkownik()
+        string Operacja;
+
+        public Nowy_uzytkownik(string O)
         {
             InitializeComponent();
+            Operacja = O;
+
+            if (Operacja == "Edycja")
+            {
+                Edycja();
+            }
+        }
+
+        private void Edycja()
+        {
+            wzrost.Text = ObecnyUzytkownik.Wzrost.ToString();
+            nazwa_uzytkownika.Text = ObecnyUzytkownik.wybrany_uzytkownik_nazwa;
+            wiek.Text = ObecnyUzytkownik.Wiek.ToString();
+            PlecCmb.Text = ObecnyUzytkownik.Plec;
+            obecna_waga.Text = ObecnyUzytkownik.ObecnaWaga.ToString();
+            docelowa_waga.Text = ObecnyUzytkownik.DocelowaWaga.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,23 +55,42 @@ namespace Kalkulator_Kalorii.MVVM.View
 
         private void UserSave_Click(object sender, RoutedEventArgs e)
         {
+            
             DataBase db = new DataBase();
             string lokalizacja = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\baza.sqlite";
             conn = db.Connection(lokalizacja);
             conn.Open();
-            int u_id = db.GetUserID();
-            User s = new User
-            {
-                UserID = u_id,
-                NazwaUzytkownika = nazwa_uzytkownika.Text,
-                Wzrost = Convert.ToInt32(wzrost.Text),
-                Plec = PlecCmb.Text,
-                ObecnaWaga = Convert.ToDecimal(obecna_waga.Text),
-                DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text),
-                Wiek = Convert.ToInt32(wiek.Text)
-            };
 
-            db.InsertUser(s);
+            if (Operacja == "Nowy")
+            {
+                int u_id = db.GetUserID();
+                User s = new User
+                {
+                    UserID = u_id,
+                    NazwaUzytkownika = nazwa_uzytkownika.Text,
+                    Wzrost = Convert.ToInt32(wzrost.Text),
+                    Plec = PlecCmb.Text,
+                    ObecnaWaga = Convert.ToDecimal(obecna_waga.Text),
+                    DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text),
+                    Wiek = Convert.ToInt32(wiek.Text)
+                };
+
+                db.InsertUser(s);
+            }
+            if (Operacja == "Edycja")
+            {
+                User s = new User
+                {
+                    UserID = ObecnyUzytkownik.wybrany_uzytkownik_id,
+                    NazwaUzytkownika = nazwa_uzytkownika.Text,
+                    Wzrost = Convert.ToInt32(wzrost.Text),
+                    Plec = PlecCmb.Text,
+                    ObecnaWaga = Convert.ToDecimal(obecna_waga.Text),
+                    DocelowaWaga = Convert.ToDecimal(docelowa_waga.Text),
+                    Wiek = Convert.ToInt32(wiek.Text)
+                };
+                db.UpdateUserData(s);
+            }
             this.Close();
         }
 

@@ -196,6 +196,68 @@ namespace Kalkulator_Kalorii.MVVM.Model
                     id = Convert.ToInt32(reader[0]);
                 return id;
             }
+
+        }
+
+        public User GetUserData(int id)
+        {
+            sql = $"SELECT * FROM USER WHERE UserID = {id}";
+            command = new SQLiteCommand(sql, conn);
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                reader.Read();
+                if (reader[0] == DBNull.Value)
+                    return null;
+                else
+                {
+                    User u = new User
+                    {
+                        UserID = Convert.ToInt32(reader[0]),
+                        NazwaUzytkownika = reader[1].ToString(),
+                        Wzrost = Convert.ToInt32(reader[2]),
+                        Plec = reader[3].ToString(),
+                        ObecnaWaga = Convert.ToDecimal(reader[4]),
+                        DocelowaWaga = Convert.ToDecimal(reader[5]),
+                        Wiek = Convert.ToInt32(reader[6]),
+                        KalorieNaDzien = Convert.ToDecimal(reader[7]),
+                        WodaNaDzien = Convert.ToDecimal(reader[8])
+
+                    };
+                    return u;
+                }
+            }
+        }
+
+        public void UpdateUserData(User s)
+        {
+            string obWaga = s.ObecnaWaga.ToString().Replace(',', '.');
+            string docWaga = s.DocelowaWaga.ToString().Replace(',', '.');
+            decimal KcalNaDzien = 0;
+            int WodaNaDzien = 0;
+            if (s.Plec == "kobieta")
+            {
+                KcalNaDzien = 655 + (9.6m * s.ObecnaWaga) + (1.85m * s.Wzrost) - (4.7m * s.Wiek);
+                WodaNaDzien = 2000;
+            }
+            else
+            {
+                KcalNaDzien = 66.5m + (13.7m * s.ObecnaWaga) + (5m * s.Wzrost) - (6.8m * s.Wiek);
+                WodaNaDzien = 2500;
+            }
+
+            if (s.ObecnaWaga > s.DocelowaWaga)
+            {
+                KcalNaDzien = KcalNaDzien * 0.8m;
+            }
+            if (s.ObecnaWaga < s.DocelowaWaga)
+            {
+                KcalNaDzien = KcalNaDzien * 1.3m;
+            }
+
+
+            sql = $"UPDATE User SET NazwaUzytkownika = '{s.NazwaUzytkownika}', Wzrost = {s.Wzrost}, Plec = '{s.Plec}', ObecnaWaga = {obWaga}, DocelowaWaga = {docWaga}, KalorieNaDzien = {KcalNaDzien.ToString().Replace(',', '.')}, WodaNaDzien = {WodaNaDzien}, Wiek = {s.Wiek} WHERE UserID = {s.UserID}";
+            command = new SQLiteCommand(sql, conn);
+            command.ExecuteNonQuery();
         }
     }
-}
+}            
