@@ -15,23 +15,21 @@ using System.Windows.Shapes;
 namespace Kalkulator_Kalorii.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for Wybor_uzytkownika.xaml
+    /// Interaction logic for Historia.xaml
     /// </summary>
-    public partial class Nowy_uzytkownik : Window
+    public partial class Historia : Window
     {
-        public Nowy_uzytkownik()
+        public Historia()
         {
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
+            MainWindow mw = new MainWindow();
+            mw.Show();
         }
+
     }
 }

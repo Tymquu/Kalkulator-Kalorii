@@ -67,6 +67,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\Historia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\Kalkulator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +81,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\View\Historia.xaml.cs">
+      <DependentUpon>Historia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\Kalkulator.xaml.cs">
       <DependentUpon>Kalkulator.xaml</DependentUpon>
     </Compile>
@@ -115,6 +122,24 @@
     <Folder Include="MVVM\Model\" />
     <Folder Include="MVVM\ViewModel\" />
     <Folder Include="Theme\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Warhammer 40k tattoo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="132-1320307_x-transparent-white-x-png-png-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="png-clipart-black-n-white-x-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="112-1120568_28-collection-of-x-mark-clipart-black-and-white-x-clip-art.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="X-Letter-PNG-Images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pngtree-letter-x-spongy-transparent-background-png-image_5963314.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
